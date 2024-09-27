@@ -1,7 +1,7 @@
 <template>
   
 <!-- Desktop screen -->
- <section>
+ <section >
     <div v-if="Screen.gt.sm">
       <q-header bordered class="bg-white text-primary q-pa-md" height-hint="98">
       <q-toolbar>
@@ -15,9 +15,9 @@
           <!-- active-class="active-tab" : Make active to menu when is on that page-->
           <q-route-tab name="home" label="Home" class="text-capitalize" :to="{name:'home-page'}" />
           <q-route-tab name="course" label="Courses" class="text-capitalize" 
-          :to="{name:'market-place'}" />
+          :to="{name:'courses-page'}" />
              
-          <q-route-tab name="event" label="Events" class="text-capitalize"/>
+          <q-route-tab name="event" label="Events" class="text-capitalize" :to="{name:'events-page'}"/>
           <q-route-tab name="about" label="About" class="text-capitalize" />
           <q-route-tab name="contact" label="Contact Us" class="text-capitalize" />
 

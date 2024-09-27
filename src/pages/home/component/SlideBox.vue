@@ -1,5 +1,6 @@
 <template>
-  <div>
+
+    <div>
     <q-carousel
       v-model="slide"
       transition-prev="jump-right"
@@ -54,6 +55,8 @@
       />
     </div>
   </div>
+
+  
 </template>
 <script setup>
 import { ref,computed} from "vue";
@@ -96,9 +99,11 @@ const autoHeightCarousel = computed(() => {
     return "215px";
   }
 });
+
 </script>
 <style scoped>
 .custom-caption {
   background: rgba(201, 201, 201, 0.556);
 }
+
 </style>

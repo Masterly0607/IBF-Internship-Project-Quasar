@@ -1,7 +1,13 @@
 <template>
-  <section>
-    <q-page class="q-mt-xs bg-grey-3" padding>
+<section>
+    <!-- Add spinner(loading) -->
+  <div v-if="loading"  class="row justify-center">
+          <q-spinner-hourglass color="primary" size="2em" />
+        </div>
+  <div v-else>
+    <q-page class="masterly-background-color-page1" padding>
       <div class="masterly-container-1200">
+         
         <q-form class="q-mt-lg">
           <q-input
             filled
@@ -76,10 +82,12 @@
         </div>
       </div>
     </q-page>
-  </section>
+  </div>
+</section>
+ 
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted,onUnmounted } from "vue";
 import ProductListGrid from "./components/product-view/ProductListGrid.vue";
 import FilterProduct from "src/pages/courses/components/FilterProduct.vue";
 import ProductListView from "./components/product-view/ProductListView.vue";
@@ -111,4 +119,17 @@ const isGrid = ref(true);
 const onChangeView = () => {
   isGrid.value = !isGrid.value;
 };
+
+// Funciton of spinner
+const loading = ref(true);
+// On mounted: set a timer for loading
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 1000); // 1.5 seconds
+});
+
+onUnmounted(() => {
+  loading.value = false; // clean up in case the component is unmounted before the timer ends
+});
 </script>
